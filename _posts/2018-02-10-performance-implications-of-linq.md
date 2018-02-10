@@ -12,9 +12,10 @@ SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) A
 ```
 But with Linq:
 
-	var posts = //some SQL: (SELECT * FROM Posts;)
-	var myPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-7) && x.Name = "Gary");
-  
+```C#
+var posts = //some SQL: (SELECT * FROM Posts;)
+var myPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-7) && x.Name = "Gary");
+```
 If I then wanted to get John's posts in the last 2 weeks:
 
 	var johnsPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-14) && x.Name = "John");
