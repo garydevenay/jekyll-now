@@ -7,9 +7,9 @@ Linq (language-integrated query) was released as part of .NET Framework 3.5 (C# 
 
 To paint a simple example, say we wanted to get all of my posts in the last week:
 
-``csharp
+```csharp
 SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) AND Name = 'Gary';
-``
+```
 
 But with Linq:
 
