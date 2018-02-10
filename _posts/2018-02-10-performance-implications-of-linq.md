@@ -36,19 +36,19 @@ GitHub: [https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System
 ```csharp
 private static IEnumerable<TSource> WhereIterator<TSource>(IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
 {
-	int index = -1;
-	foreach (TSource element in source)
-	{
-	    checked
-	    {
-		index++;
-	    }
+    int index = -1;
+    foreach (TSource element in source)
+    {
+        checked
+        {
+	    index++;
+        }
 
-	    if (predicate(element, index))
-	    {
-		yield return element;
-	    }
-	}
+        if (predicate(element, index))
+        {
+	    yield return element;
+        }
+    }
 }
 ```
 
