@@ -91,7 +91,7 @@ By "use SQL" I don't mean go and install Entity Framework or some other ORM, but
 
 I personally use NPoco to write and execute SQL queries from my .NET applications. It has .NET Framework and .NET Standard (Core) support and maps results to your models automatically, but anything that lets you write raw SQL without interference will work fine.
 
-NPoco: https://github.com/schotime/NPoco
+NPoco: [https://github.com/schotime/NPoco](https://github.com/schotime/NPoco)
 
 ## Summary
 
