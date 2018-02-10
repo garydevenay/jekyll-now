@@ -7,20 +7,20 @@ Linq (language-integrated query) was released as part of .NET Framework 3.5 (C# 
 
 To paint a simple example, say we wanted to get all of my posts in the last week:
 
-```SQL
+```sql
 SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) AND Name = 'Gary';
 ```
 
 But with Linq:
 
-```C#
+```csharp
 var posts = //some SQL: (SELECT * FROM Posts;)
 var myPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-7) && x.Name = "Gary");
 ```
 
 If I then wanted to get John's posts in the last 2 weeks:
 
-```C#
+```csharp
 var johnsPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-14) && x.Name = "John");
 ```
 
@@ -33,7 +33,7 @@ To understand why this isn't awesome, and is probably the source of some of the 
 
 GitHub: [https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75)
 
-```C#
+```csharp
 private static IEnumerable<TSource> WhereIterator<TSource>(IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
 {
 	int index = -1;
@@ -59,7 +59,7 @@ Secondly we are then looping over every single row returned from the database an
 
 Without access to Linq - this is the code we would write to acheive the same result:
 
-```C#
+```csharp
 List<Post> posts = //SELECT * FROM Posts;
 List<Post> garysPosts = new List<Post>();
 foreach(Post post in posts)
