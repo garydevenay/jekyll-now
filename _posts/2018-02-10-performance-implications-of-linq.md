@@ -7,15 +7,16 @@ Linq (language-integrated query) was released as part of .NET Framework 3.5 (C# 
 
 To paint a simple example, say we wanted to get all of my posts in the last week:
 
-    SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) AND Name = 'Gary';
+  SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) AND Name = 'Gary';
 
 But with Linq:
 
-    var posts = //some SQL: (SELECT * FROM Posts;)
-    var myPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-7) && x.Name = "Gary");
+  var posts = //some SQL: (SELECT * FROM Posts;)
+  var myPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-7) && x.Name = "Gary");
+  
 If I then wanted to get John's posts in the last 2 weeks:
 
-    var johnsPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-14) && x.Name = "John");
+  var johnsPosts = posts.Where(x => x.Created > DateTime.Now.AddDays(-14) && x.Name = "John");
 
 This caught on quite quickly - we can do 2 queries and only hit the DB once! Awesome right!?
 
@@ -24,7 +25,7 @@ This caught on quite quickly - we can do 2 queries and only hit the DB once! Awe
 ## Why not?
 To understand why this isn't awesome, and is probably the source of some of the major performance issues your .NET applications we will jump in to the source of .NET Core (note: .NET Framework is the same, but we can view the source of .NET Core).
 
-GitHub: https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75
+GitHub: [https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75)
 
     private static IEnumerable<TSource> WhereIterator<TSource>(IEnumerable<TSource> source, Func<TSource, int, bool> predicate)
     {
