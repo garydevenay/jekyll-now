@@ -63,7 +63,7 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
   syntax_highlighter: rouge
 
 # Set the Sass partials directory, as we're using @imports
