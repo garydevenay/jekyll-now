@@ -10,6 +10,11 @@
   overflow: scroll;
 }
 
+.highlight > .highlight {
+  padding: 0;
+  overflow: none;
+}
+
 code {
   font-family:'Bitstream Vera Sans Mono','Courier', monospace;
 }
