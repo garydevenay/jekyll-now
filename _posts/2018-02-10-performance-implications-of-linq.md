@@ -89,7 +89,7 @@ Excessive use of this pattern leads to slow response times, platform slowdown an
 
 Easy - use SQL instead of Linq.
 
-By "use SQL" I don't mean go and install Entity Framework or some other ORM, but actually write your SQL queries to only fetch the information you need from the database. Databases like MSSQL are incredibly powerful and efficient tools, don't be scared to test their limits.
+By "use SQL" I don't mean go and install Entity Framework or some other ORM, but actually write your SQL queries to only fetch the information you need from the database. Databases like MSSQL are incredibly powerful and efficient tools which can handle a beating and still perform well, don't be scared to test their limits.
 
 I personally use NPoco to write and execute SQL queries from my .NET applications. It has .NET Framework and .NET Standard (Core) support and maps results to your models automatically, but anything that lets you write raw SQL without interference will work fine.
 
