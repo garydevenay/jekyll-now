@@ -97,6 +97,6 @@ NPoco: [https://github.com/schotime/NPoco](https://github.com/schotime/NPoco)
 
 ## Summary
 
-This is the most common performance pitfalls I see in .NET applications. It's quite common for us as developers to use a library that makes something easier and assume it's doing magic under the covers, just keep in mind that .NET is built on the same C# toolset that you and I work with every day, there is no magic fairy dust!
+This is the most common performance pitfall I see in .NET applications. It's quite common for us as developers to use a library that makes something easier and assume it's doing magic under the covers, just keep in mind that .NET is built on the same C# toolset that you and I work with every day, there is no magic fairy dust!
 
 If this is something that you've seen yourself do in the past or are experiencing some performance issues in a .NET application containing queries like this, I challenge you stop yourself from writing these Linq queries and start writing better defined SQL - I can guarantee both you and your clients will notice the difference.
