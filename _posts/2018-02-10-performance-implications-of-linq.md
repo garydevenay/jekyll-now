@@ -52,6 +52,8 @@ private static IEnumerable<TSource> WhereIterator<TSource>(IEnumerable<TSource> 
 }
 ```
 
+This is a similar story for the entire set of Linq filtering methods.
+
 ### So what is happening here?
 First of all, when we perform a wide `SELECT` statement on a database table we are loading all of the results in to memory, this will immediately consume memory resources for data - most of which you know you are never going to use.
 
