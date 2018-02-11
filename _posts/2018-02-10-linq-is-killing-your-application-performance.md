@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Performance Implications of Linq
+title: Linq Is Killing Your Application Performance
 ---
 
 Linq (language-integrated query) was released as part of .NET Framework 3.5 (C# 3.0) back in 2007 with the intention of making code more readable and to allow developers to create applications without learning more than one programming language (e.g SQL). The idea would be that C# developers would be able to perform more complex queries on their dataset without writing complex SQL queries.
