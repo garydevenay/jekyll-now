@@ -5,7 +5,7 @@ title: Performance Implications of Linq
 
 Linq (language-integrated query) was released as part of .NET Framework 3.5 (C# 3.0) back in 2007 with the intention of making code more readable and to allow developers to create applications without learning more than one programming language (e.g SQL). The idea would be that C# developers would be able to perform more complex queries on their dataset without writing complex SQL queries.
 
-To paint a simple example, say we wanted to get all of my posts in the last week:
+To paint a simple example - say we wanted to get all of my posts in the last week:
 
 ```csharp
 SELECT Id, Name, Created FROM Posts WHERE Created > DATEADD(week,-1,GETDATE()) AND Name = 'Gary';
@@ -29,7 +29,7 @@ This caught on quite quickly - we can do 2 queries and only hit the DB once! Awe
 **No.**
 
 ## Why not?
-To understand why this isn't awesome, and is probably the source of some of the major performance issues your .NET applications we will jump in to the source of .NET Core (note: .NET Framework is the same, but we can view the source of .NET Core).
+To understand why this isn't awesome, and is probably the source of some of the major performance issues your .NET applications we will jump in to the source of .NET Core and look a what the `Where` method does under the hood. (note: .NET Framework is the same, but we can view the source of .NET Core).
 
 GitHub: [https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75](https://github.com/dotnet/corefx/blob/master/src/System.Linq/src/System/Linq/Where.cs#L60-L75)
 
