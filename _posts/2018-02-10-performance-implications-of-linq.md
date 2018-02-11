@@ -55,7 +55,7 @@ private static IEnumerable<TSource> WhereIterator<TSource>(IEnumerable<TSource> 
 This is a similar story for the entire set of Linq filtering methods.
 
 ### So what is happening here?
-First of all, when we perform a wide `SELECT` statement on a database table we are loading all of the results in to memory, this will immediately consume memory resources for data - most of which you know you are never going to use.
+First of all, when we perform a wide `SELECT` statement on a database table we are loading all of the results in to memory, this will immediately consume memory resources for data - most of which we know are never going to be used.
 
 Secondly we are then looping over every single row returned from the database and performing an `if` condition on it.
 
@@ -68,7 +68,7 @@ foreach(Post post in posts)
 {
     if (post.Name == "Gary" && post.Created > DateTime.Now.AddDays(-7))
     {
-	    garysPosts.Add(post);
+        garysPosts.Add(post);
     }
 }
 ```
